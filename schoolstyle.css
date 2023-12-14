@@ -26,10 +26,7 @@ form {
 p{
     font-size: 18px;
     margin-bottom: 20px;
-    .highlight{
-      display: inline;
-      box-shadow: inset 0 -10px 0 #d9fcdb; 
-    }
+    background: linear-gradient(to top, #bfffa1 40%, transparent 40%);
 }
 
 /* Dropdown styles */
