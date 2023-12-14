@@ -23,7 +23,7 @@ form {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-p{
+p {
     font-size: 18px;
     font-weight: lighter;
     margin-bottom: 20px;
@@ -32,12 +32,13 @@ p{
 select {
     padding: 10px;
     font-size: 18px;
-    border: 1px solid #ccc;
+    border: 1px solid $ccc;
     border-radius: 5px;
     width: 100%;
     box-sizing: border-box;
     white-space: normal;
-    text-align : justify;
+    text-align: justify;
+    border: 1px solid #ccc; /* Add this line to give a border to the select element */
 }
 
 /* Input field styles */
@@ -65,7 +66,6 @@ button {
 button:hover {
     background-color: #45a049;
 }
-
 
 /* Responsive styles */
 @media screen and (max-width: 600px) {
