@@ -41,6 +41,11 @@ select {
     border: 1px solid #ccc; /* Add this line to give a border to the select element */
 }
 
+select option:checked {
+    background-color: $blue; /* Change the background color of the selected option */
+    color: #fff; /* Change the text color of the selected option */
+}
+
 /* Input field styles */
 input[type="text"] {
     padding: 10px;
