@@ -26,7 +26,6 @@ form {
 p {
     font-size: 18px;
     margin-bottom: 20px;
-    word-break: break-all;
 }
 
 /* Dropdown styles */
@@ -37,7 +36,7 @@ select {
     border-radius: 5px;
     width: 100%;
     box-sizing: border-box;
-    word-break: break-all;
+    overflow-wrap: break-word;
 }
 
 /* Input field styles */
