@@ -26,9 +26,8 @@ form {
 p{
     font-size: 18px;
     margin-bottom: 20px;
-    background: linear-gradient(to top, #bfffa1 40%, transparent 40%);
 }
-
+.highlighter {background: linear-gradient(#ffea00 0 100%); background-position: 0 calc(100% - 2px); background-size: 100% 14px; background-repeat: no-repeat;}
 /* Dropdown styles */
 select {
     padding: 10px;
