@@ -49,17 +49,21 @@ input[type="text"] {
     box-sizing: border-box;
 }
 
-/* Button styles */
+/* Button styles */          
 button {
-  border-color: $blue;
-  color: #fff;
-  box-shadow: 0 0 40px 40px $blue inset, 0 0 0 0 $blue;
-  transition: all 150ms ease-in-out;
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-button:hover {    
-    box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
+button:hover {
+    background-color: #45a049;
 }
+           
 
 /* Responsive styles */
 @media screen and (max-width: 600px) {
