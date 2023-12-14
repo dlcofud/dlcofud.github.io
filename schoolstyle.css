@@ -1,4 +1,12 @@
 /* General styles */
+//Colours
+$green: #2ecc71;
+$red: #e74c3c;
+$blue: #3498db;
+$yellow: #f1c40f;
+$purple: #8e44ad;
+$turquoise: #1abc9c;
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
@@ -43,17 +51,14 @@ input[type="text"] {
 
 /* Button styles */
 button {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  border-color: $blue;
+  color: #fff;
+  box-shadow: 0 0 40px 40px $blue inset, 0 0 0 0 $blue;
+  transition: all 150ms ease-in-out;
 }
 
-button:hover {
-    background-color: #45a049;
+button:hover {    
+    box-shadow: 0 0 10px 0 $blue inset, 0 0 10px 4px $blue;
 }
 
 /* Responsive styles */
