@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학교 미니 설문</title>
+    <style>
+        select {
+            padding: 5px;
+            font-size: 16px;
+        }
+        #studentInput1,
+        #studentInput2,
+        #studentInput3,
+        #studentInput4,
+        #studentInput5,
+        #studentInput6,
+        #studentInput7,
+        #studentInput8 {
+            display: none;
+        }
+
+		#studentInputt1,
+        #studentInputt2,
+        #studentInputt3,
+        #studentInputt4,
+        #studentInputt5,
+        #studentInputt6,
+        #studentInputt7,
+        #studentInputt8 {
+            display: none;
+        }
+    </style>
+    <script>
+		
+		function initializeSelectedStudents() {
+            return {
+                "1": "",
+                "2": "",
+                "3": "",
+                "4": "",
+                "5": "",
+                "6": "",
+                "7": "",
+                "8": ""
+            };
+        }
+
+        var selectedStudents = initializeSelectedStudents();
+        var selectedStudentts = initializeSelectedStudents();
+        
+		function updateInput() {
+			for (var i = 1; i <= 8; i++) {
+			document.getElementById("studentInput" + i).value = selectedStudents[i];
+			document.getElementById("studentInputt" + i).value = selectedStudentts[i];
+			}
+		}
+
+        
+        function hideOptions(dropdownId, valuesToHide) {
+            var dropdown = document.getElementById(dropdownId);
+            var options = dropdown.options;
+
+            for (var i = 0; i < options.length; i++) {
+                var optionValue = options[i].value;
+
+                if (valuesToHide.includes(optionValue)) {
+                    options[i].style.display = 'none';
+                } else {
+                    options[i].style.display = 'block';
+                }
+            }
+        }
+
+        function update() {
+            for (var i = 1; i <= 8; i++) {
+                var dropdownId = "friendDropdown" + i;
+                var selectedValue = document.getElementById(dropdownId).options[document.getElementById(dropdownId).selectedIndex].value;
+				selectedStudents[i] = selectedValue;
+               
+                // List of values to hide in the dropdown
+                var valuesToHide = Object.values(selectedStudents).filter(value => value !== "").filter(value => value !== selectedValue);
+
+                // Call the hideOptions function to update the dropdown
+                hideOptions(dropdownId, valuesToHide);
+                
+                
+                var dropdownId = "friendDropdownt" + i;
+                var selectedValue = document.getElementById(dropdownId).options[document.getElementById(dropdownId).selectedIndex].value;
+				selectedStudentts[i] = selectedValue;
+               
+                // List of values to hide in the dropdown
+                var valuesToHide = Object.values(selectedStudentts).filter(value => value !== "").filter(value => value !== selectedValue);
+
+                // Call the hideOptions function to update the dropdown
+                hideOptions(dropdownId, valuesToHide);
+            }
+            updateInput();
+        }
+        function validateForm() {
+            for (var i = 1; i <= 8; i++) {
+                if (selectedStudents[i] === "none") {
+                    alert("모든 항목에 응답해주세요.");
+                    return false; // Form submission is halted
+                }
+                if (selectedStudents[i] === "") {
+                    alert("모든 항목에 응답해주세요.");
+                    return false; // Form submission is halted
+                }
+            }
+            for (var i = 1; i <= 8; i++) {
+                if (selectedStudentts[i] === "none") {
+                    alert("모든 항목에 응답해주세요.");
+                    return false; // Form submission is halted
+                }
+                if (selectedStudentts[i] === "") {
+                    alert("모든 항목에 응답해주세요.");
+                    return false; // Form submission is halted
+                }
+            }
+                        // Form submission can proceed, reset variables
+            updateInput();
+            selectedStudents = initializeSelectedStudents();
+            selectedStudentts = initializeSelectedStudents();
+            return true; // Form submission can proceed
+        }
+		
+    </script>
+    <link rel="stylesheet" href="http://tinyurl.com/ykgqsojs">
+</head>
+<body>
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSfYekDOcrjd_zlp0inrwIp0IPH9iGbi9Swsw4ALzbXmqMyksg/formResponse" onsubmit="return validateForm()">
+        
+        <p>1번부터 8번까지의 질문에 각각 다른 친구의 이름을 입력해 주세요</p>
+        <!-- Question 1 -->
+        <label for="entry.507369272">1. 수업 시간에 태도가 좋은 친구는?</label><br>
+        <select id="friendDropdown1" onchange="update()">
+			<option value="none" selected disabled hidden>--선택해주세요--</option> 
+            <option value="강연진">강연진</option>
+			<option value="권도윤">권도윤</option>
+			<option value="김윤호">김윤호</option>
+			<option value="김평강">김평강</option>
+			<option value="김형진">김형진</option>
+			<option value="민지윤">민지윤</option>
+			<option value="박화윤">박화윤</option>
+			<option value="배진수">배진수</option>
+			<option value="신민규">신민규</option>
+			<option value="안상후">안상후</option>
+			<option value="안성민">안성민</option>
+			<option value="우태원">우태원</option>
+			<option value="유동근">유동근</option>
+			<option value="유명선">유명선</option>
+			<option value="이가윤">이가윤</option>
+			<option value="이동민">이동민</option>
+			<option value="이민경">이민경</option>
+			<option value="이민혁">이민혁</option>
+			<option value="이소정">이소정</option>
+			<option value="이준수">이준수</option>
+			<option value="이지원">이지원</option>
+			<option value="이지황">이지황</option>
+			<option value="이지효">이지효</option>
+			<option value="이채령">이채령</option>
+			<option value="지민주">지민주</option>
+			<option value="최민">최민</option>
+			<option value="최정은">최정은</option>
+			<option value="최혜담">최혜담</option>
+			<option value="하상유">하상유</option>
+        </select><br>
+        <input type="text" id="studentInput1" name="entry.507369272" placeholder="student" readonly>
+
+        <!-- Question 2 -->
+        <label for="entry.1558895220">2. 수업 시간에 가장 적극적으로 발표하고 참여하는 친구는?</label><br>
+        <select id="friendDropdown2" onchange="update()">
+			<option value="none" selected disabled hidden>--선택해주세요--</option> 
+            <option value="강연진">강연진</option>
+			<option value="권도윤">권도윤</option>
+			<option value="김윤호">김윤호</option>
+			<option value="김평강">김평강</option>
+			<option value="김형진">김형진</option>
+			<option value="민지윤">민지윤</option>
+			<option value="박화윤">박화윤</option>
+			<option value="배진수">배진수</option>
+			<option value="신민규">신민규</option>
+			<option value="안상후">안상후</option>
+			<option value="안성민">안성민</option>
+			<option value="우태원">우태원</option>
+			<option value="유동근">유동근</option>
+			<option value="유명선">유명선</option>
+			<option value="이가윤">이가윤</option>
+			<option value="이동민">이동민</option>
+			<option value="이민경">이민경</option>
+			<option value="이민혁">이민혁</option>
+			<option value="이소정">이소정</option>
+			<option value="이준수">이준수</option>
+			<option value="이지원">이지원</option>
+			<option value="이지황">이지황</option>
+			<option value="이지효">이지효</option>
+			<option value="이채령">이채령</option>
+			<option value="지민주">지민주</option>
+			<option value="최민">최민</option>
+			<option value="최정은">최정은</option>
+			<option value="최혜담">최혜담</option>
+			<option value="하상유">하상유</option>
+        </select><br>
+        <input type="text" id="studentInput2" name="entry.1558895220" placeholder="student" readonly>
+
+        <!-- Question 3 -->
+        <label for="entry.352462824">3. 유머 감각이 있어 수업 분위기를 부드럽게 하는 친구는?</label><br>
+        <select id="friendDropdown3" onchange="update()">
+			<option value="none" selected disabled hidden>--선택해주세요--</option> 
+            <option value="강연진">강연진</option>
+			<option value="권도윤">권도윤</option>
+			<option value="김윤호">김윤호</option>
+			<option value="김평강">김평강</option>
+			<option value="김형진">김형진</option>
+			<option value="민지윤">민지윤</option>
+			<option value="박화윤">박화윤</option>
+			<option value="배진수">배진수</option>
+			<option value="신민규">신민규</option>
+			<option value="안상후">안상후</option>
+			<option value="안성민">안성민</option>
+			<option value="우태원">우태원</option>
+			<option value="유동근">유동근</option>
+			<option value="유명선">유명선</option>
+			<option value="이가윤">이가윤</option>
+			<option value="이동민">이동민</option>
+			<option value="이민경">이민경</option>
+			<option value="이민혁">이민혁</option>
+			<option value="이소정">이소정</option>
+			<option value="이준수">이준수</option>
+			<option value="이지원">이지원</option>
+			<option value="이지황">이지황</option>
+			<option value="이지효">이지효</option>
+			<option value="이채령">이채령</option>
+			<option value="지민주">지민주</option>
+			<option value="최민">최민</option>
+			<option value="최정은">최정은</option>
+			<option value="최혜담">최혜담</option>
+			<option value="하상유">하상유</option>
+        </select><br>
+        <input type="text" id="studentInput3" name="entry.352462824" placeholder="student" readonly>
+        
+        <label for="entry.168309310">4. 쉬는 시간을 잘 활용하는 한결같은 학습 태도를 지닌 친구는?</label><br>
+        <select id="friendDropdown4" onchange="update()">
+			<option value="none" selected disabled hidden>--선택해주세요--</option> 
+            <option value="강연진">강연진</option>
+			<option value="권도윤">권도윤</option>
+			<option value="김윤호">김윤호</option>
+			<option value="김평강">김평강</option>
+			<option value="김형진">김형진</option>
+			<option value="민지윤">민지윤</option>
+			<option value="박화윤">박화윤</option>
+			<option value="배진수">배진수</option>
+			<option value="신민규">신민규</option>
+			<option value="안상후">안상후</option>
+			<option value="안성민">안성민</option>
+			<option value="우태원">우태원</option>
+			<option value="유동근">유동근</option>
+			<option value="유명선">유명선</option>
+			<option value="이가윤">이가윤</option>
+			<option value="이동민">이동민</option>
+			<option value="이민경">이민경</option>
+			<option value="이민혁">이민혁</option>
+			<option value="이소정">이소정</option>
+			<option value="이준수">이준수</option>
+			<option value="이지원">이지원</option>
+			<option value="이지황">이지황</option>
+			<option value="이지효">이지효</option>
+			<option value="이채령">이채령</option>
+			<option value="지민주">지민주</option>
+			<option value="최민">최민</option>
+			<option value="최정은">최정은</option>
+			<option value="최혜담">최혜담</option>
+			<option value="하상유">하상유</option>
+        </select><br>
+        <input type="text" id="studentInput4" name="entry.168309310" placeholder="student" readonly>
+        
+        <label for="entry.278002421">5. 해결이 되지 않는 문제를 가장 먼저 찾아가 질문하게 되는 친구는?</label><br>
+        <select id="friendDropdown5" onchange="update()">
+			<option value="none" selected disabled hidden>--선택해주세요--</option> 
+            <option value="강연진">강연진</option>
+			<option value="권도윤">권도윤</option>
+			<option value="김윤호">김윤호</option>
+			<option value="김평강">김평강</option>
+			<option value="김형진">김형진</option>
+			<option value="민지윤">민지윤</option>
+			<option value="박화윤">박화윤</option>
+			<option value="배진수">배진수</option>
+			<option value="신민규">신민규</option>
+			<option value="안상후">안상후</option>
+			<option value="안성민">안성민</option>
+			<option value="우태원">우태원</option>
+			<option value="유동근">유동근</option>
+			<option value="유명선">유명선</option>
+			<option value="이가윤">이가윤</option>
+			<option value="이동민">이동민</option>
+			<option value="이민경">이민경</option>
+			<option value="이민혁">이민혁</option>
+			<option value="이소정">이소정</option>
+			<option value="이준수">이준수</option>
+			<option value="이지원">이지원</option>
+			<option value="이지황">이지황</option>
+			<option value="이지효">이지효</option>
+			<option value="이채령">이채령</option>
+			<option value="지민주">지민주</option>
+			<option value="최민">최민</option>
+			<option value="최정은">최정은</option>
+			<option value="최혜담">최혜담</option>
+			<option value="하상유">하상유</option>
+        </select><br>
+        <input type="text" id="studentInput5" name="entry.278002421" placeholder="student" readonly>
+        
+        <label for="entry.1928063041">6. 팀 프로젝트나 그룹 과제를 할 때, 리더십이 돋보이는 친구는?</label><br>
+        <select id="friendDropdown6" onchange="update()">
+			<option value="none" selected disabled hidden>--선택해주세요--</option> 
+            <option value="강연진">강연진</option>
+			<option value="권도윤">권도윤</option>
+			<option value="김윤호">김윤호</option>
+			<option value="김평강">김평강</option>
+			<option value="김형진">김형진</option>
+			<option value="민지윤">민지윤</option>
+			<option value="박화윤">박화윤</option>
+			<option value="배진수">배진수</option>
+			<option value="신민규">신민규</option>
+			<option value="안상후">안상후</option>
+			<option value="안성민">안성민</option>
+			<option value="우태원">우태원</option>
+			<option value="유동근">유동근</option>
+			<option value="유명선">유명선</option>
+			<option value="이가윤">이가윤</option>
+			<option value="이동민">이동민</option>
+			<option value="이민경">이민경</option>
+			<option value="이민혁">이민혁</option>
+			<option value="이소정">이소정</option>
+			<option value="이준수">이준수</option>
+			<option value="이지원">이지원</option>
+			<option value="이지황">이지황</option>
+			<option value="이지효">이지효</option>
+			<option value="이채령">이채령</option>
+			<option value="지민주">지민주</option>
+			<option value="최민">최민</option>
+			<option value="최정은">최정은</option>
+			<option value="최혜담">최혜담</option>
+			<option value="하상유">하상유</option>
+        </select><br>
+        <input type="text" id="studentInput6" name="entry.1928063041" placeholder="student" readonly>
+        
+        <label for="entry.768544578">7. 팀 프로젝트나 그룹 과제를 할 때, 협동심이 돋보이는 친구는?</label><br>
+        <select id="friendDropdown7" onchange="update()">
+			<option value="none" selected disabled hidden>--선택해주세요--</option> 
+            <option value="강연진">강연진</option>
+			<option value="권도윤">권도윤</option>
+			<option value="김윤호">김윤호</option>
+			<option value="김평강">김평강</option>
+			<option value="김형진">김형진</option>
+			<option value="민지윤">민지윤</option>
+			<option value="박화윤">박화윤</option>
+			<option value="배진수">배진수</option>
+			<option value="신민규">신민규</option>
+			<option value="안상후">안상후</option>
+			<option value="안성민">안성민</option>
+			<option value="우태원">우태원</option>
+			<option value="유동근">유동근</option>
+			<option value="유명선">유명선</option>
+			<option value="이가윤">이가윤</option>
+			<option value="이동민">이동민</option>
+			<option value="이민경">이민경</option>
+			<option value="이민혁">이민혁</option>
+			<option value="이소정">이소정</option>
+			<option value="이준수">이준수</option>
+			<option value="이지원">이지원</option>
+			<option value="이지황">이지황</option>
+			<option value="이지효">이지효</option>
+			<option value="이채령">이채령</option>
+			<option value="지민주">지민주</option>
+			<option value="최민">최민</option>
+			<option value="최정은">최정은</option>
+			<option value="최혜담">최혜담</option>
+			<option value="하상유">하상유</option>
+        </select><br>
+        <input type="text" id="studentInput7" name="entry.768544578" placeholder="student" readonly>
+        
+        <label for="entry.902551505">8. 학교의 다양한 진로 활동에 가장 열심히 참여하며 노력하는 친구는?</label><br>
+        <select id="friendDropdown8" onchange="update()">
+			<option value="none" selected disabled hidden>--선택해주세요--</option> 
+            <option value="강연진">강연진</option>
+			<option value="권도윤">권도윤</option>
+			<option value="김윤호">김윤호</option>
+			<option value="김평강">김평강</option>
+			<option value="김형진">김형진</option>
+			<option value="민지윤">민지윤</option>
+			<option value="박화윤">박화윤</option>
+			<option value="배진수">배진수</option>
+			<option value="신민규">신민규</option>
+			<option value="안상후">안상후</option>
+			<option value="안성민">안성민</option>
+			<option value="우태원">우태원</option>
+			<option value="유동근">유동근</option>
+			<option value="유명선">유명선</option>
+			<option value="이가윤">이가윤</option>
+			<option value="이동민">이동민</option>
+			<option value="이민경">이민경</option>
+			<option value="이민혁">이민혁</option>
+			<option value="이소정">이소정</option>
+			<option value="이준수">이준수</option>
+			<option value="이지원">이지원</option>
+			<option value="이지황">이지황</option>
+			<option value="이지효">이지효</option>
+			<option value="이채령">이채령</option>
+			<option value="지민주">지민주</option>
+			<option value="최민">최민</option>
+			<option value="최정은">최정은</option>
+			<option value="최혜담">최혜담</option>
+			<option value="하상유">하상유</option>
+        </select><br>
+        <input type="text" id="studentInput8" name="entry.902551505" placeholder="student" readonly>
+        
+        <br>
+        <p>1번부터 8번까지의 질문에 각각 다른 친구의 이름을 입력해 주세요</p>
+        <label for="entry.1177856667">1. 학급 내에서 지내는 모습이 다른 친구들에게 모범이 되는 친구는? </label><br>
+        <select id="friendDropdownt1" onchange="update()">
+			<option value="none" selected disabled hidden>--선택해주세요--</option> 
+            <option value="강연진">강연진</option>
+			<option value="권도윤">권도윤</option>
+			<option value="김윤호">김윤호</option>
+			<option value="김평강">김평강</option>
+			<option value="김형진">김형진</option>
+			<option value="민지윤">민지윤</option>
+			<option value="박화윤">박화윤</option>
+			<option value="배진수">배진수</option>
+			<option value="신민규">신민규</option>
+			<option value="안상후">안상후</option>
+			<option value="안성민">안성민</option>
+			<option value="우태원">우태원</option>
+			<option value="유동근">유동근</option>
+			<option value="유명선">유명선</option>
+			<option value="이가윤">이가윤</option>
+			<option value="이동민">이동민</option>
+			<option value="이민경">이민경</option>
+			<option value="이민혁">이민혁</option>
+			<option value="이소정">이소정</option>
+			<option value="이준수">이준수</option>
+			<option value="이지원">이지원</option>
+			<option value="이지황">이지황</option>
+			<option value="이지효">이지효</option>
+			<option value="이채령">이채령</option>
+			<option value="지민주">지민주</option>
+			<option value="최민">최민</option>
+			<option value="최정은">최정은</option>
+			<option value="최혜담">최혜담</option>
+			<option value="하상유">하상유</option>
+        </select><br>
+        <input type="text" id="studentInputt1" name="entry.1177856667" placeholder="student" readonly>
+
+        <!-- Question 2 -->
+        <label for="entry.1264223959">2. 이해심이 많고 남을 배려하는 마음이 돋보이는 친구는?</label><br>
+        <select id="friendDropdownt2" onchange="update()">
+			<option value="none" selected disabled hidden>--선택해주세요--</option> 
+            <option value="강연진">강연진</option>
+			<option value="권도윤">권도윤</option>
+			<option value="김윤호">김윤호</option>
+			<option value="김평강">김평강</option>
+			<option value="김형진">김형진</option>
+			<option value="민지윤">민지윤</option>
+			<option value="박화윤">박화윤</option>
+			<option value="배진수">배진수</option>
+			<option value="신민규">신민규</option>
+			<option value="안상후">안상후</option>
+			<option value="안성민">안성민</option>
+			<option value="우태원">우태원</option>
+			<option value="유동근">유동근</option>
+			<option value="유명선">유명선</option>
+			<option value="이가윤">이가윤</option>
+			<option value="이동민">이동민</option>
+			<option value="이민경">이민경</option>
+			<option value="이민혁">이민혁</option>
+			<option value="이소정">이소정</option>
+			<option value="이준수">이준수</option>
+			<option value="이지원">이지원</option>
+			<option value="이지황">이지황</option>
+			<option value="이지효">이지효</option>
+			<option value="이채령">이채령</option>
+			<option value="지민주">지민주</option>
+			<option value="최민">최민</option>
+			<option value="최정은">최정은</option>
+			<option value="최혜담">최혜담</option>
+			<option value="하상유">하상유</option>
+        </select><br>
+        <input type="text" id="studentInputt2" name="entry.1264223959" placeholder="student" readonly>
+
+        <!-- Question 3 -->
+        <label for="entry.1206856205">3. 친구의 이야기를 잘 들어주는 친구는?</label><br>
+        <select id="friendDropdownt3" onchange="update()">
+			<option value="none" selected disabled hidden>--선택해주세요--</option> 
+            <option value="강연진">강연진</option>
+			<option value="권도윤">권도윤</option>
+			<option value="김윤호">김윤호</option>
+			<option value="김평강">김평강</option>
+			<option value="김형진">김형진</option>
+			<option value="민지윤">민지윤</option>
+			<option value="박화윤">박화윤</option>
+			<option value="배진수">배진수</option>
+			<option value="신민규">신민규</option>
+			<option value="안상후">안상후</option>
+			<option value="안성민">안성민</option>
+			<option value="우태원">우태원</option>
+			<option value="유동근">유동근</option>
+			<option value="유명선">유명선</option>
+			<option value="이가윤">이가윤</option>
+			<option value="이동민">이동민</option>
+			<option value="이민경">이민경</option>
+			<option value="이민혁">이민혁</option>
+			<option value="이소정">이소정</option>
+			<option value="이준수">이준수</option>
+			<option value="이지원">이지원</option>
+			<option value="이지황">이지황</option>
+			<option value="이지효">이지효</option>
+			<option value="이채령">이채령</option>
+			<option value="지민주">지민주</option>
+			<option value="최민">최민</option>
+			<option value="최정은">최정은</option>
+			<option value="최혜담">최혜담</option>
+			<option value="하상유">하상유</option>
+        </select><br>
+        <input type="text" id="studentInputt3" name="entry.1206856205" placeholder="student" readonly>
+        
+        <label for="entry.672363422">4. 궂은일을 마다 않고 솔선수범하는 친구는?</label><br>
+        <select id="friendDropdownt4" onchange="update()">
+			<option value="none" selected disabled hidden>--선택해주세요--</option> 
+            <option value="강연진">강연진</option>
+			<option value="권도윤">권도윤</option>
+			<option value="김윤호">김윤호</option>
+			<option value="김평강">김평강</option>
+			<option value="김형진">김형진</option>
+			<option value="민지윤">민지윤</option>
+			<option value="박화윤">박화윤</option>
+			<option value="배진수">배진수</option>
+			<option value="신민규">신민규</option>
+			<option value="안상후">안상후</option>
+			<option value="안성민">안성민</option>
+			<option value="우태원">우태원</option>
+			<option value="유동근">유동근</option>
+			<option value="유명선">유명선</option>
+			<option value="이가윤">이가윤</option>
+			<option value="이동민">이동민</option>
+			<option value="이민경">이민경</option>
+			<option value="이민혁">이민혁</option>
+			<option value="이소정">이소정</option>
+			<option value="이준수">이준수</option>
+			<option value="이지원">이지원</option>
+			<option value="이지황">이지황</option>
+			<option value="이지효">이지효</option>
+			<option value="이채령">이채령</option>
+			<option value="지민주">지민주</option>
+			<option value="최민">최민</option>
+			<option value="최정은">최정은</option>
+			<option value="최혜담">최혜담</option>
+			<option value="하상유">하상유</option>
+        </select><br>
+        <input type="text" id="studentInputt4" name="entry.672363422" placeholder="student" readonly>
+        
+        <label for="entry.228469563">5. 어려움을 느끼는 친구를 가장 잘 돕는 친구는?</label><br>
+        <select id="friendDropdownt5" onchange="update()">
+			<option value="none" selected disabled hidden>--선택해주세요--</option> 
+            <option value="강연진">강연진</option>
+			<option value="권도윤">권도윤</option>
+			<option value="김윤호">김윤호</option>
+			<option value="김평강">김평강</option>
+			<option value="김형진">김형진</option>
+			<option value="민지윤">민지윤</option>
+			<option value="박화윤">박화윤</option>
+			<option value="배진수">배진수</option>
+			<option value="신민규">신민규</option>
+			<option value="안상후">안상후</option>
+			<option value="안성민">안성민</option>
+			<option value="우태원">우태원</option>
+			<option value="유동근">유동근</option>
+			<option value="유명선">유명선</option>
+			<option value="이가윤">이가윤</option>
+			<option value="이동민">이동민</option>
+			<option value="이민경">이민경</option>
+			<option value="이민혁">이민혁</option>
+			<option value="이소정">이소정</option>
+			<option value="이준수">이준수</option>
+			<option value="이지원">이지원</option>
+			<option value="이지황">이지황</option>
+			<option value="이지효">이지효</option>
+			<option value="이채령">이채령</option>
+			<option value="지민주">지민주</option>
+			<option value="최민">최민</option>
+			<option value="최정은">최정은</option>
+			<option value="최혜담">최혜담</option>
+			<option value="하상유">하상유</option>
+        </select><br>
+        <input type="text" id="studentInputt5" name="entry.228469563" placeholder="student" readonly>
+        
+        <label for="entry.481236012">6. 친구에게 호감을 주고 학교생활을 즐겁게 하는 친구는?</label><br>
+        <select id="friendDropdownt6" onchange="update()">
+			<option value="none" selected disabled hidden>--선택해주세요--</option> 
+            <option value="강연진">강연진</option>
+			<option value="권도윤">권도윤</option>
+			<option value="김윤호">김윤호</option>
+			<option value="김평강">김평강</option>
+			<option value="김형진">김형진</option>
+			<option value="민지윤">민지윤</option>
+			<option value="박화윤">박화윤</option>
+			<option value="배진수">배진수</option>
+			<option value="신민규">신민규</option>
+			<option value="안상후">안상후</option>
+			<option value="안성민">안성민</option>
+			<option value="우태원">우태원</option>
+			<option value="유동근">유동근</option>
+			<option value="유명선">유명선</option>
+			<option value="이가윤">이가윤</option>
+			<option value="이동민">이동민</option>
+			<option value="이민경">이민경</option>
+			<option value="이민혁">이민혁</option>
+			<option value="이소정">이소정</option>
+			<option value="이준수">이준수</option>
+			<option value="이지원">이지원</option>
+			<option value="이지황">이지황</option>
+			<option value="이지효">이지효</option>
+			<option value="이채령">이채령</option>
+			<option value="지민주">지민주</option>
+			<option value="최민">최민</option>
+			<option value="최정은">최정은</option>
+			<option value="최혜담">최혜담</option>
+			<option value="하상유">하상유</option>
+        </select><br>
+        <input type="text" id="studentInputt6" name="entry.481236012" placeholder="student" readonly>
+        
+        <label for="entry.725364486">7. 선생님과 친구들에게 인사를 잘하며 예의 바르게 행동하는 친구는?</label><br>
+        <select id="friendDropdownt7" onchange="update()">
+			<option value="none" selected disabled hidden>--선택해주세요--</option> 
+            <option value="강연진">강연진</option>
+			<option value="권도윤">권도윤</option>
+			<option value="김윤호">김윤호</option>
+			<option value="김평강">김평강</option>
+			<option value="김형진">김형진</option>
+			<option value="민지윤">민지윤</option>
+			<option value="박화윤">박화윤</option>
+			<option value="배진수">배진수</option>
+			<option value="신민규">신민규</option>
+			<option value="안상후">안상후</option>
+			<option value="안성민">안성민</option>
+			<option value="우태원">우태원</option>
+			<option value="유동근">유동근</option>
+			<option value="유명선">유명선</option>
+			<option value="이가윤">이가윤</option>
+			<option value="이동민">이동민</option>
+			<option value="이민경">이민경</option>
+			<option value="이민혁">이민혁</option>
+			<option value="이소정">이소정</option>
+			<option value="이준수">이준수</option>
+			<option value="이지원">이지원</option>
+			<option value="이지황">이지황</option>
+			<option value="이지효">이지효</option>
+			<option value="이채령">이채령</option>
+			<option value="지민주">지민주</option>
+			<option value="최민">최민</option>
+			<option value="최정은">최정은</option>
+			<option value="최혜담">최혜담</option>
+			<option value="하상유">하상유</option>
+        </select><br>
+        <input type="text" id="studentInputt7" name="entry.725364486" placeholder="student" readonly>
+        
+        <label for="entry.5836439">8. 자신이 맡은 일을 끝까지 책임지고 해내는 친구는?</label><br>
+        <select id="friendDropdownt8" onchange="update()">
+			<option value="none" selected disabled hidden>--선택해주세요--</option> 
+            <option value="강연진">강연진</option>
+			<option value="권도윤">권도윤</option>
+			<option value="김윤호">김윤호</option>
+			<option value="김평강">김평강</option>
+			<option value="김형진">김형진</option>
+			<option value="민지윤">민지윤</option>
+			<option value="박화윤">박화윤</option>
+			<option value="배진수">배진수</option>
+			<option value="신민규">신민규</option>
+			<option value="안상후">안상후</option>
+			<option value="안성민">안성민</option>
+			<option value="우태원">우태원</option>
+			<option value="유동근">유동근</option>
+			<option value="유명선">유명선</option>
+			<option value="이가윤">이가윤</option>
+			<option value="이동민">이동민</option>
+			<option value="이민경">이민경</option>
+			<option value="이민혁">이민혁</option>
+			<option value="이소정">이소정</option>
+			<option value="이준수">이준수</option>
+			<option value="이지원">이지원</option>
+			<option value="이지황">이지황</option>
+			<option value="이지효">이지효</option>
+			<option value="이채령">이채령</option>
+			<option value="지민주">지민주</option>
+			<option value="최민">최민</option>
+			<option value="최정은">최정은</option>
+			<option value="최혜담">최혜담</option>
+			<option value="하상유">하상유</option>
+        </select><br>
+        <input type="text" id="studentInputt8" name="entry.5836439" placeholder="student" readonly>
+        
+        
+
+        <br><button type="submit">제출</button>
+    </form>
+    
+    <script>
+        // Initial call to hide options when the page loads
+        for (var i = 1; i <= 8; i++) {
+            var dropdownId = "friendDropdown" + i;
+            var valuesToHide = Object.values(selectedStudents).filter(value => value !== "");
+            hideOptions(dropdownId, valuesToHide);
+            
+            
+            var dropdownId = "friendDropdownt" + i;
+            var valuesToHide = Object.values(selectedStudents).filter(value => value !== "");
+            hideOptions(dropdownId, valuesToHide);
+        }
+        
+                // Continuous update on any dropdown change
+        for (var i = 1; i <= 8; i++) {
+            var dropdownId = "friendDropdown" + i;
+            document.getElementById(dropdownId).addEventListener("change", update);
+            
+            
+            var dropdownId = "friendDropdownt" + i;
+            document.getElementById(dropdownId).addEventListener("change", update);
+        }
+    </script>
+    
+</body>
+</html>
