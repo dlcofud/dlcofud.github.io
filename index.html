@@ -726,7 +726,37 @@
             var dropdownId = "friendDropdownt" + i;
             document.getElementById(dropdownId).addEventListener("change", update);
         }
-    </script>
+	    // Function to submit the form data to backend API
+	    function submitForm(event) {
+	        event.preventDefault();  // Prevent the default form submission
+	
+	        const formData = {
+	            q1: document.getElementById("friendDropdown1").value,
+	            q2: document.getElementById("friendDropdown2").value,
+	            q3: document.getElementById("friendDropdown3").value,
+	            q4: document.getElementById("friendDropdown4").value,
+	            q5: document.getElementById("friendDropdown5").value,
+	            q6: document.getElementById("friendDropdown6").value,
+	            q7: document.getElementById("friendDropdown7").value,
+	            q8: document.getElementById("friendDropdown8").value
+	        };
+	
+	        // Send the data to the backend API using fetch
+	        fetch("https://dlcofud-github-io.onrender.com", {
+	            method: "POST",
+	            headers: {
+	                "Content-Type": "application/json"
+	            },
+	            body: JSON.stringify(formData)
+	        })
+	        .then(response => response.json())
+	        .then(data => alert("설문이 저장되었습니다!"))
+	        .catch(error => console.error("에러 발생:", error));
+	    }
+	    
+	    // Assuming the form's submit button has an ID of 'submitBtn'
+	    document.getElementById("submitBtn").addEventListener("click", submitForm);
+	</script>
     
 </body>
 </html>
